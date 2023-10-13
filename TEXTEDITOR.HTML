@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+    <head>
+        <title>TEXT EDITOR</title>
+        <style>
+            .bbold {
+                font-weight: bold;
+              }
+            .italic {
+                font-style: italic;
+            }         
+            .blue {
+                color: blue;
+              } 
+            .red {
+                background-color: red;
+            } 
+        </style>
+        <style>
+            #editor {
+                font-size: 16px; /* Initial font size */
+              }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#b').click(function(){
+                    $('#editor').addClass("bbold");
+                });
+                $('#i').click(function(){
+                    $('#editor').addClass("italic");
+                });
+                $('#txtC').click(function(){
+                    $('#editor').addClass("blue");
+                });
+                $('#bgC').click(function(){
+                    $('#editor').addClass("red");
+                });
+                $('#f+').click(function() {
+                    $('#sze').changeFontSize(+2); 
+                });
+                  
+                $('#f-').click(function() {
+                    $('#sze').changeFontSize(-2); 
+                    });
+                
+                  
+                function changeFontSize(change) {
+                    var currentFontSize = parseInt($('#sze').css("font-size"));
+                    var newFontSize = currentFontSize + change;
+                    $('#sze').css("font-size", newFontSize + "px");
+                }
+                                  
+
+            });
+        </script>
+    </head>
+    <body>
+    <CENTER>
+        <h2>Text Editor</h2>
+        <input type="text" id="editor" size="50" >
+
+        <br><br>
+        <input type="button" id="b"  value="BOLD" >
+        <input type="button" id="i"  value="ITALIAN" >
+        <input type="button" id="f+"  value="FONT SIZE INCREMENT" >
+        <br><BR>
+        <input type="button" id="f-" value="FONT SIZE DECREMENT">
+        <input type="button" id="txtC"  value="TEXT COLOR CHANGE" >
+        <br><BR>
+        <input type="button" id="bgC" value="BACKGROUND COLOR CHANGE" >
+        <p id='sze'> RESIZE</p>
+    </CENTER>
+    </body>
+</html>  
